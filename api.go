@@ -1,4 +1,4 @@
-package uClig
+package tipWifi
 
 import (
 	"bytes"
