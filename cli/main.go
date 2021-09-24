@@ -132,7 +132,7 @@ func main() {
 			var info string
 			if flag.NArg() >= (n + 3) {
 				next := strings.ToLower(flag.Args()[n+2])
-				if existsInList(next, uClig.DeviceInfo) {
+				if existsInList(next, tipWifi.DeviceInfo) {
 					info = next
 					skip2 = true
 				}
@@ -152,7 +152,7 @@ func main() {
 			}
 			skip = true
 			devType := strings.ToLower(flag.Args()[n+1])
-			if !existsInList(devType, uClig.DeviceTypes) {
+			if !existsInList(devType, tipWifi.DeviceTypes) {
 				log.Println("Retrieving Valid Device Types...")
 				validDevices, err := uc.ListFirmwareDeviceTypes()
 				if err != nil {
