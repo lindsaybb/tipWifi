@@ -1,4 +1,4 @@
-package uClig
+package tipWifi
 
 type Passpoint struct { // "Enable Hotspot 2.0 support."
 	VenueName  []string `json:"venue-name"`  // "This parameter can be used to configure one or more Venue Name Duples for Venue Name ANQP information."
