@@ -1,4 +1,4 @@
-package uClig
+package tipWifi
 
 type Radius struct {
 	NasIdentifier    string `json:"nas-identifier"`     // "NAS-Identifier string for RADIUS messages. When used, this should be unique to the NAS within the scope of the RADIUS server.""
