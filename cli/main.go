@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"telecomInfra/uClig"
+	"github.com/lindsaybb/tipWifi"
 )
 
 var (
@@ -59,9 +59,9 @@ func init() {
 }
 
 func main() {
-	uc := &uClig.UCentral{
+	uc := &tipWifi.UCentral{
 		SEC: *secUrlFlag,
-		Auth: &uClig.Auth{
+		Auth: &tipWifi.Auth{
 			UserID:   *userFlag,
 			Password: *passFlag,
 		},
@@ -81,8 +81,8 @@ func main() {
 	}
 
 	// declaring them here to persist between loops... necessary?
-	var devs *uClig.Devices
-	var dev *uClig.Device
+	var devs *tipWifi.Devices
+	var dev *tipWifi.Device
 
 	var skip bool
 	var skip2 bool
@@ -105,7 +105,7 @@ func main() {
 			var info string
 			if flag.NArg() >= (n + 2) {
 				next := strings.ToLower(flag.Args()[n+1])
-				if existsInList(next, uClig.DeviceInfo) {
+				if existsInList(next, tipWifi.DeviceInfo) {
 					info = next
 					skip = true
 				}
@@ -143,7 +143,7 @@ func main() {
 					log.Println(err)
 				}
 			}
-			uClig.DisplayList(dev.SerialNumber, dev.ListInfo(info))
+			tipWifi.DisplayList(dev.SerialNumber, dev.ListInfo(info))
 
 		case 2:
 			// "getfirmware",
@@ -171,7 +171,7 @@ func main() {
 					if err != nil {
 						log.Fatalln(err)
 					}
-					uClig.DisplayList(devType, []string{fw.GenerateDescription()})
+					tipWifi.DisplayList(devType, []string{fw.GenerateDescription()})
 					continue
 				}
 			}
@@ -179,7 +179,7 @@ func main() {
 			if err != nil {
 				log.Fatalln(err)
 			}
-			uClig.DisplayList(devType, fws.GenerateList())
+			tipWifi.DisplayList(devType, fws.GenerateList())
 
 		case 3:
 			// "upgradefirmware",
@@ -274,7 +274,7 @@ func main() {
 	//fmt.Printf("API Gateway: %s\nFirmware Management System: %s\n", uc.GW, uc.FMS)
 }
 
-func logout(uc *uClig.UCentral) {
+func logout(uc *tipWifi.UCentral) {
 	err := uc.Logout()
 	if err != nil {
 		log.Println(err)
