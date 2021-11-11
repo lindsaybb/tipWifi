@@ -12,7 +12,7 @@ import (
 var (
 	userFlag   = flag.String("un", "tip@ucentral.com", "uCentral Username")
 	passFlag   = flag.String("pw", "openwifi", "uCentral Password")
-	secUrlFlag = flag.String("sec", "lindsay.arilia.com:16002", "uCentral Security Endpoint")
+	secUrlFlag = flag.String("sec", "lindsay.arilia.com:16001", "uCentral Security Endpoint")
 	helpFlag   = flag.Bool("h", false, "Show this help")
 )
 
